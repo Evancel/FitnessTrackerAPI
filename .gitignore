@@ -1,0 +1,21 @@
+# course config files
+*.yaml
+
+# gradle
+.gradle/
+build
+
+
+# idea config
+.idea
+
+# old stages
+/Fitness Tracker API/*
+!/Fitness Tracker API/task/
+/Fitness Tracker API/task/*
+!/Fitness Tracker API/task/src
+!/Fitness Tracker API/task/build.gradle
+
+# Project exclude paths
+/Topics/Random class/Find the seed/out/
+/Topics/Random class/Find the seed/out/production/classes/
