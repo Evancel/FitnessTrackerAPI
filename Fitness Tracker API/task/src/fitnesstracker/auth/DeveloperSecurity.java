@@ -12,13 +12,14 @@ public class DeveloperSecurity implements UserDetails {
 
     private final Developer developer;
 
-    public DeveloperSecurity(Developer developer){
+    public DeveloperSecurity(Developer developer) {
         this.developer = developer;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(developer.getAuthority()));
+        String authority = developer.getAuthority() != null ? developer.getAuthority() : "ROLE_USER";
+        return List.of(new SimpleGrantedAuthority(authority));
     }
 
     @Override

@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 public class FitnessActivityService {
     private final FitnessActivityRepository activityRepository;
 
-    public FitnessActivityService(FitnessActivityRepository activityRepository){
+    public FitnessActivityService(FitnessActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
 
-    public void save(FitnessActivity activity){
-        if(activity != null){
+    public void save(FitnessActivity activity) {
+        if (activity != null) {
             activityRepository.save(activity);
         }
     }
 
-    public Iterable<FitnessActivity> getAll(){
+    public Iterable<FitnessActivity> getAll() {
         return activityRepository.findAll(Sort.by(Sort.Direction.DESC, "creationDate"));
     }
 }

@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface ApplicationRepository extends CrudRepository<Application, Long> {
     boolean existsByName(String name);
+
     Optional<Application> findByApikey(String apikey);
 }

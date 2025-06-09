@@ -1,6 +1,5 @@
 package fitnesstracker.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -31,7 +30,7 @@ public class FitnessActivity {
     private Application application;
 
 
-    public FitnessActivity(){
+    public FitnessActivity() {
         this.creationDate = LocalDateTime.now();
     }
 

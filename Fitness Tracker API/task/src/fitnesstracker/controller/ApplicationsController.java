@@ -42,7 +42,7 @@ public class ApplicationsController {
         }
 
         Optional<Developer> optDeveloper = developerService.findByEmail(details.getUsername());
-        if(optDeveloper.isEmpty()){
+        if (optDeveloper.isEmpty()) {
             return ResponseEntity.status(401).build();
         }
 

@@ -1,8 +1,51 @@
-This is the *Fitness Tracker API* project I made myself.
+# Fitness Tracker API
 
+A Spring Boot REST API for managing fitness data, developer accounts, and client applications. This project demonstrates secure API design with authentication, rate limiting, and best practices for public APIs.
 
-<p>You probably have used public APIs in your projects but have you ever wanted to build such an API on your own? If yes, this project is the right place to start. You will create a public API that allows client applications to upload and download data from fitness devices, protect your API with API-Key authentication and apply different rate limit policies to different categories of clients.</p><br/><br/>Learn more at <a href="https://hyperskill.org/projects/408?utm_source=ide&utm_medium=ide&utm_campaign=ide&utm_content=project-card">https://hyperskill.org/projects/408</a>
+## Features
+
+- Developer registration and authentication
+- API key authentication for client applications
+- Rate limiting for different client categories
+- Upload and download fitness data
+- Role-based access control
+- Input validation and error handling
+
+## Tech Stack
+
+- Java
+- Spring Boot
+- Spring Security
+- JPA (Hibernate)
+- Gradle
+
+## Getting Started
+
+### Prerequisites
+
+- Java 17+
+- Gradle
+
+### Setup
+
+1. Clone the repository:
+git clone https://github.com/Evancel/FitnessTrackerAPI.git cd fitness-tracker-api
+2. Build and run the application:
+   ./gradlew bootRun
+3. The API will be available at `http://localhost:8080`.
+
+## API Endpoints
+
+- `POST /api/developers/signup` — Register a new developer
+- `GET /api/developers/{id}` — Get developer profile (authentication required)
+- More endpoints for applications and fitness data (see source code)
+
+## Documentation
 
 Here's the link to the project: https://hyperskill.org/projects/408
 
-Check out my profile: https://hyperskill.org/profile/527332546
+## License
+
+This project is for educational purposes.
+
+---

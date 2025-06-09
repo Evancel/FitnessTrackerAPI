@@ -5,7 +5,8 @@ public class ApplicationResponse {
     private String apikey;
     public String category;
 
-    public ApplicationResponse(){}
+    public ApplicationResponse() {
+    }
 
     public String getName() {
         return name;

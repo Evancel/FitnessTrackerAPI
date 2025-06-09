@@ -78,11 +78,11 @@ public class Application {
         return apikey;
     }
 
-    public void setApikey(long id, String name) {
-        if(this.apikey != null){
+    public void setApikey() {
+        if (this.apikey != null) {
             return;
         }
-        this.apikey = createApikey(id, name);
+        this.apikey = createApikey();
     }
 
     public Developer getDeveloper() {
@@ -101,7 +101,7 @@ public class Application {
         this.category = category;
     }
 
-    private String createApikey(long id, String name) {
+    private String createApikey() {
         byte[] array = KeyGenerators.secureRandom(10).generateKey();
         return new BigInteger(1, array).toString(16);
     }

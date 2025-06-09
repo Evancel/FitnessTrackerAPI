@@ -1,6 +1,5 @@
 package fitnesstracker.auth;
 
-import fitnesstracker.entity.Application;
 import fitnesstracker.repository.ApplicationRepository;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,9 +20,9 @@ public class ApikeyAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) {
         String requestApikey = authentication.getCredentials().toString();
 
-        Application application = applicationRepository
-                .findByApikey(requestApikey)
-                .orElseThrow(() -> new BadCredentialsException("Invalid access apikey"));
+        if (applicationRepository.findByApikey(requestApikey).isEmpty()) {
+            throw new BadCredentialsException("Invalid access apikey");
+        }
 
         authentication.setAuthenticated(true);
         return authentication;

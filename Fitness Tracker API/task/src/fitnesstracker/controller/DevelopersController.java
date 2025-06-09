@@ -1,9 +1,9 @@
 package fitnesstracker.controller;
 
-import fitnesstracker.DeveloperProfileDto;
+import fitnesstracker.entity.dto.DeveloperProfileDto;
 import fitnesstracker.entity.Application;
-import fitnesstracker.service.DeveloperService;
 import fitnesstracker.entity.Developer;
+import fitnesstracker.service.DeveloperService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,7 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/developers")
@@ -21,14 +24,14 @@ public class DevelopersController {
     private final DeveloperService developerService;
     private final PasswordEncoder passwordEncoder;
 
-    public DevelopersController(DeveloperService developerService, PasswordEncoder passwordEncoder){
+    public DevelopersController(DeveloperService developerService, PasswordEncoder passwordEncoder) {
         this.developerService = developerService;
         this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> register(@Valid @RequestBody Developer request){
-        if(request == null || developerService.findByEmail(request.getEmail()).isPresent()){
+    public ResponseEntity<?> register(@Valid @RequestBody Developer request) {
+        if (request == null || developerService.findByEmail(request.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -38,22 +41,22 @@ public class DevelopersController {
 
         Developer savedDeveloper = developerService.save(developer);
         URI location = URI.create("/api/developers/" + savedDeveloper.getId());
-        return  ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getById(@AuthenticationPrincipal UserDetails details, @PathVariable(name = "id") long id){
+    public ResponseEntity<?> getById(@AuthenticationPrincipal UserDetails details, @PathVariable(name = "id") long id) {
         if (details == null) {
             return ResponseEntity.status(401).build(); // 401 Unauthorized
         }
 
         Optional<Developer> optDeveloper = developerService.findByEmail(details.getUsername());
-        if(optDeveloper.isEmpty()){
+        if (optDeveloper.isEmpty()) {
             return ResponseEntity.status(401).build();
         }
 
         Developer currDeveloper = optDeveloper.get();
-        if(currDeveloper.getId() != id){
+        if (currDeveloper.getId() != id) {
             return ResponseEntity.status(403).build();
         }
 

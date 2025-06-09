@@ -5,12 +5,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @JsonPropertyOrder({
@@ -60,7 +57,7 @@ public class Developer {
         this.email = email;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
 

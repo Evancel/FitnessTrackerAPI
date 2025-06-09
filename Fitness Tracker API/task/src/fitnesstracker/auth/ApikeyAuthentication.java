@@ -11,7 +11,9 @@ public class ApikeyAuthentication implements Authentication {
     private final String apikey;
     private boolean authenticated = false;
 
-    public ApikeyAuthentication(String apikey) { this.apikey = apikey; }
+    public ApikeyAuthentication(String apikey) {
+        this.apikey = apikey;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -19,16 +21,24 @@ public class ApikeyAuthentication implements Authentication {
     }
 
     @Override
-    public Object getCredentials() { return apikey; }
+    public Object getCredentials() {
+        return apikey;
+    }
 
     @Override
-    public Object getDetails() { return null; }
+    public Object getDetails() {
+        return null;
+    }
 
     @Override
-    public Object getPrincipal() { return "bearer access apikey"; }
+    public Object getPrincipal() {
+        return "bearer access apikey";
+    }
 
     @Override
-    public boolean isAuthenticated() { return authenticated; }
+    public boolean isAuthenticated() {
+        return authenticated;
+    }
 
     @Override
     public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
@@ -36,5 +46,7 @@ public class ApikeyAuthentication implements Authentication {
     }
 
     @Override
-    public String getName() { return "bearer access apikey"; }
+    public String getName() {
+        return "bearer access apikey";
+    }
 }

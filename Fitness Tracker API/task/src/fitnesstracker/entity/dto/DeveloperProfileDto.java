@@ -1,4 +1,4 @@
-package fitnesstracker;
+package fitnesstracker.entity.dto;
 
 import fitnesstracker.entity.Application;
 
@@ -9,9 +9,10 @@ public class DeveloperProfileDto {
     private String email;
     List<Application> applications;
 
-    public DeveloperProfileDto(){}
+    public DeveloperProfileDto() {
+    }
 
-    public DeveloperProfileDto(long id, String email, List<Application> applicationList){
+    public DeveloperProfileDto(long id, String email, List<Application> applicationList) {
         this.id = id;
         this.email = email;
         this.applications = applicationList;

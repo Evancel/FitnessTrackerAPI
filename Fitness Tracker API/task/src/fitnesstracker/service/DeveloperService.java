@@ -11,20 +11,20 @@ public class DeveloperService {
 
     private final DeveloperRepository developerRepository;
 
-    public DeveloperService(DeveloperRepository developerRepository){
+    public DeveloperService(DeveloperRepository developerRepository) {
         this.developerRepository = developerRepository;
     }
 
-    public Developer save(Developer developer){
+    public Developer save(Developer developer) {
         developerRepository.save(developer);
         return developer;
     }
 
-    public Optional<Developer> findById(Long id){
+    public Optional<Developer> findById(Long id) {
         return developerRepository.findById(id);
     }
 
-    public Optional<Developer> findByEmail(String email){
+    public Optional<Developer> findByEmail(String email) {
         return developerRepository.findByEmail(email);
     }
 }

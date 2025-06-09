@@ -43,8 +43,8 @@ public class FitnessActivityController {
             return ResponseEntity.status(401).build();
         }
         Application currApp = optApp.get();
-        if(currApp.getCategory().equals(AppCategory.basic)){
-            if(!tokenIsValid(currApp.getId())){
+        if (currApp.getCategory().equals(AppCategory.BASIC)) {
+            if (!tokenIsValid(currApp.getId())) {
                 return ResponseEntity.status(429).build();
             }
         }
@@ -67,8 +67,8 @@ public class FitnessActivityController {
         }
 
         Application currApp = optApp.get();
-        if(currApp.getCategory().equals(AppCategory.basic)){
-            if(!tokenIsValid(currApp.getId())){
+        if (currApp.getCategory().equals(AppCategory.BASIC)) {
+            if (!tokenIsValid(currApp.getId())) {
                 return ResponseEntity.status(429).build();
             }
         }
@@ -87,8 +87,8 @@ public class FitnessActivityController {
         }
     }
 
-    private boolean tokenIsValid(Long appId){
-        if (!tokenBuckets.containsKey(appId)){
+    private boolean tokenIsValid(Long appId) {
+        if (!tokenBuckets.containsKey(appId)) {
             tokenBuckets.put(appId, "a1b2c3d4e5");
         }
 

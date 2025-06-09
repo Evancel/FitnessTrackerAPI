@@ -13,7 +13,8 @@ public class ApplicationRequest {
     @NotNull
     private String category;
 
-    public ApplicationRequest(){}
+    public ApplicationRequest() {
+    }
 
     public String getName() {
         return name;
