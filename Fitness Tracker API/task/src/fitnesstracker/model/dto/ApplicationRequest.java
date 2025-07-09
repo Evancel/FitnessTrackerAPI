@@ -1,16 +1,15 @@
-package fitnesstracker.entity.dto;
+package fitnesstracker.model.dto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public class ApplicationRequest {
     @NotBlank
     @Column(unique = true)
     private String name;
-    @NotNull
+    @NotBlank
     private String description;
-    @NotNull
+    @NotBlank
     private String category;
 
     public ApplicationRequest() {

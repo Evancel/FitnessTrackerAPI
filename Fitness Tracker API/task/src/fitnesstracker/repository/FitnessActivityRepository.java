@@ -1,6 +1,6 @@
 package fitnesstracker.repository;
 
-import fitnesstracker.entity.FitnessActivity;
+import fitnesstracker.model.entity.FitnessActivity;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;

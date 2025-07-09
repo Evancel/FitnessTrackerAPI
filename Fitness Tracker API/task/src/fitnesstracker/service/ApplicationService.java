@@ -1,30 +1,13 @@
 package fitnesstracker.service;
 
-import fitnesstracker.entity.Application;
-import fitnesstracker.repository.ApplicationRepository;
-import org.springframework.stereotype.Service;
+import fitnesstracker.model.dto.ApplicationRequest;
+import fitnesstracker.model.dto.ApplicationResponse;
+import fitnesstracker.model.entity.Application;
 
 import java.util.Optional;
 
-@Service
-public class ApplicationService {
-    private final ApplicationRepository applicationRepository;
-
-    public ApplicationService(ApplicationRepository applicationRepository) {
-        this.applicationRepository = applicationRepository;
-    }
-
-    public boolean exists(String name) {
-        return applicationRepository.existsByName(name);
-    }
-
-    public Optional<Application> findByApikey(String apikey) {
-        return applicationRepository.findByApikey(apikey);
-    }
-
-    public Application save(Application application) {
-        application.setApikey();
-        applicationRepository.save(application);
-        return application;
-    }
+public interface ApplicationService {
+    boolean existsByName(String name);
+    Optional<Application> findByApikey(String apikey);
+    ApplicationResponse register(String email, ApplicationRequest request);
 }

@@ -1,4 +1,4 @@
-package fitnesstracker.entity;
+package fitnesstracker.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 

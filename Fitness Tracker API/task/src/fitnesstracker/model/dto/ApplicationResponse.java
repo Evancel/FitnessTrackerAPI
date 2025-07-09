@@ -1,11 +1,20 @@
-package fitnesstracker.entity.dto;
+package fitnesstracker.model.dto;
 
 public class ApplicationResponse {
+    private Long id;
     private String name;
     private String apikey;
     public String category;
 
     public ApplicationResponse() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

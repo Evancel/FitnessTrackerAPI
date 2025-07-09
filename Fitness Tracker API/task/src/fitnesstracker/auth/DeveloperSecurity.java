@@ -1,6 +1,6 @@
 package fitnesstracker.auth;
 
-import fitnesstracker.entity.Developer;
+import fitnesstracker.model.entity.Developer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

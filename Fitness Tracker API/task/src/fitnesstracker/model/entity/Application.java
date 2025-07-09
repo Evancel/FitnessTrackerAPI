@@ -1,8 +1,10 @@
-package fitnesstracker.entity;
+package fitnesstracker.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import fitnesstracker.model.AppCategory;
+import fitnesstracker.model.dto.ApplicationRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -40,22 +42,8 @@ public class Application {
     public Application() {
     }
 
-    public Application(String name) {
-        this.name = name;
-    }
-
-    public Application(String name, String description, AppCategory category) {
-        this.name = name;
-        this.description = description;
-        this.category = category;
-    }
-
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -99,6 +87,16 @@ public class Application {
 
     public void setCategory(AppCategory category) {
         this.category = category;
+    }
+
+    public static Application createFromRequest(ApplicationRequest req, Developer dev) {
+        Application app = new Application();
+        app.setName(req.getName());
+        app.setDescription(req.getDescription());
+        app.setCategory(AppCategory.convertToEnum(req.getCategory()));
+        app.setDeveloper(dev);
+        app.setApikey();
+        return app;
     }
 
     private String createApikey() {

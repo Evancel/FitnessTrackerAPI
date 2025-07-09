@@ -1,8 +1,8 @@
 package fitnesstracker.controller;
 
-import fitnesstracker.entity.dto.DeveloperProfileDto;
-import fitnesstracker.entity.Application;
-import fitnesstracker.entity.Developer;
+import fitnesstracker.model.dto.DeveloperProfileDto;
+import fitnesstracker.model.entity.Application;
+import fitnesstracker.model.entity.Developer;
 import fitnesstracker.service.DeveloperService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +39,7 @@ public class DevelopersController {
         developer.setEmail(request.getEmail());
         developer.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        Developer savedDeveloper = developerService.save(developer);
+        Developer savedDeveloper = developerService.register(developer);
         URI location = URI.create("/api/developers/" + savedDeveloper.getId());
         return ResponseEntity.created(location).build();
     }

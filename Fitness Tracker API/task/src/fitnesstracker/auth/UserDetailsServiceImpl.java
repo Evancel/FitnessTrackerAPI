@@ -1,6 +1,6 @@
 package fitnesstracker.auth;
 
-import fitnesstracker.entity.Developer;
+import fitnesstracker.model.entity.Developer;
 import fitnesstracker.repository.DeveloperRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,30 +1,11 @@
 package fitnesstracker.service;
 
-import fitnesstracker.entity.Developer;
-import fitnesstracker.repository.DeveloperRepository;
-import org.springframework.stereotype.Service;
+import fitnesstracker.model.entity.Developer;
 
 import java.util.Optional;
 
-@Service
-public class DeveloperService {
-
-    private final DeveloperRepository developerRepository;
-
-    public DeveloperService(DeveloperRepository developerRepository) {
-        this.developerRepository = developerRepository;
-    }
-
-    public Developer save(Developer developer) {
-        developerRepository.save(developer);
-        return developer;
-    }
-
-    public Optional<Developer> findById(Long id) {
-        return developerRepository.findById(id);
-    }
-
-    public Optional<Developer> findByEmail(String email) {
-        return developerRepository.findByEmail(email);
-    }
+public interface DeveloperService {
+    Developer register(Developer developer);
+    Optional<Developer> findById(Long id);
+    Optional<Developer> findByEmail(String email);
 }

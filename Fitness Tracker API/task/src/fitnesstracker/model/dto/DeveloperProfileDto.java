@@ -1,6 +1,6 @@
-package fitnesstracker.entity.dto;
+package fitnesstracker.model.dto;
 
-import fitnesstracker.entity.Application;
+import fitnesstracker.model.entity.Application;
 
 import java.util.List;
 

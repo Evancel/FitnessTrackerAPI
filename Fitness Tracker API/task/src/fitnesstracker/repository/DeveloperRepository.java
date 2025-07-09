@@ -1,6 +1,6 @@
 package fitnesstracker.repository;
 
-import fitnesstracker.entity.Developer;
+import fitnesstracker.model.entity.Developer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
 package fitnesstracker.controller;
 
-import fitnesstracker.entity.AppCategory;
-import fitnesstracker.entity.Application;
-import fitnesstracker.entity.FitnessActivity;
+import fitnesstracker.model.AppCategory;
+import fitnesstracker.model.entity.Application;
+import fitnesstracker.model.entity.FitnessActivity;
 import fitnesstracker.service.ApplicationService;
 import fitnesstracker.service.FitnessActivityService;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +50,7 @@ public class FitnessActivityController {
         }
 
         activity.setApplication(currApp);
-        activityService.save(activity);
+        activityService.register(activity);
         return ResponseEntity.status(201).build();
     }
 
