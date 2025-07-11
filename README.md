@@ -44,7 +44,7 @@ A secure, token-regulated backend API for managing fitness activity data submitt
   "password": "StrongPass123"
 }
 ```
----
+
 ### Application Registration
 **Endpoint:** `POST /api/applications/register`  
 **Payload:**
