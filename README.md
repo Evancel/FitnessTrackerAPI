@@ -44,6 +44,7 @@ A secure, token-regulated backend API for managing fitness activity data submitt
   "password": "StrongPass123"
 }
 ```
+
 ### Application Registration
 **Endpoint:** `POST /api/applications/register`  
 **Payload:**
@@ -51,17 +52,20 @@ A secure, token-regulated backend API for managing fitness activity data submitt
 {
   "name": "MyWorkoutApp",
   "description": "Tracks cardio and strength exercises",
-  "category": "BASIC"
+  "category": "basic"
 }
 ```
+
 ### Submit Fitness activity
 **Endpoint:** `POST /api/tracker`  
 **Payload:**
 Headers: X-API-Key: abc123xyz
 ```json
 {
-  "activity": "Running",
-  "durationMinutes": 30
+   "username": "user-12",
+   "activity": "swimming",
+   "duration": 950,
+   "calories": 320
 }
 ```
 
@@ -82,19 +86,6 @@ Includes unit tests and service-layer logic coverage using:
 - JUnit 5
 - Mockito
 - Spring Boot Starter Test
-
----
-
-## 📁 Project Structure
-fitnesstracker/
-├── controller/          # REST endpoints
-├── service/             # Interfaces and implementations
-├── model/               # DTOs, entities, mappers
-├── repository/          # Spring Data JPA repositories
-├── exception/           # Custom exception classes
-├── utility/             # Auth and token helpers
-└── test/                # Unit tests
-
 
 ---
 
