@@ -19,7 +19,7 @@ public class FitnessActivity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private long id;
+    private Long id;
     private String username;
     private String activity;
     private int duration;
@@ -34,30 +34,14 @@ public class FitnessActivity {
         this.creationDate = LocalDateTime.now();
     }
 
-    public FitnessActivity(String username,
-                           String activity,
-                           int duration,
-                           int calories,
-                           Application application) {
-        this.username = username;
-        this.activity = activity;
-        this.duration = duration;
-        this.calories = calories;
-        this.creationDate = LocalDateTime.now();
-        this.application = application;
-    }
 
     @JsonProperty("application")
     public String getApplicationName() {
         return application != null ? application.getName() : null;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Long getId() {
+        return this.id;
     }
 
     public String getUsername() {
@@ -69,7 +53,7 @@ public class FitnessActivity {
     }
 
     public String getActivity() {
-        return activity;
+        return this.activity;
     }
 
     public void setActivity(String activity) {
@@ -77,7 +61,7 @@ public class FitnessActivity {
     }
 
     public int getDuration() {
-        return duration;
+        return this.duration;
     }
 
     public void setDuration(int duration) {
@@ -85,15 +69,19 @@ public class FitnessActivity {
     }
 
     public int getCalories() {
-        return calories;
+        return this.calories;
     }
 
     public void setCalories(int calories) {
         this.calories = calories;
     }
 
+    public LocalDateTime getCreationDate() {
+        return this.creationDate;
+    }
+
     public Application getApplication() {
-        return application;
+        return this.application;
     }
 
     public void setApplication(Application application) {

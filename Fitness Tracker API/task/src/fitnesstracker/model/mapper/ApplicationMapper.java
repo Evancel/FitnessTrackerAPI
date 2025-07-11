@@ -4,6 +4,9 @@ import fitnesstracker.model.dto.ApplicationResponse;
 import fitnesstracker.model.entity.Application;
 
 public class ApplicationMapper {
+    private ApplicationMapper() {
+    }
+
     public static ApplicationResponse toResponse(Application application) {
         ApplicationResponse response = new ApplicationResponse();
         response.setName(application.getName());

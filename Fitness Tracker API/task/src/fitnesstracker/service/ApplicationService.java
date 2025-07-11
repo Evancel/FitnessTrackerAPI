@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public interface ApplicationService {
     boolean existsByName(String name);
+
     Optional<Application> findByApikey(String apikey);
+
     ApplicationResponse register(String email, ApplicationRequest request);
 }

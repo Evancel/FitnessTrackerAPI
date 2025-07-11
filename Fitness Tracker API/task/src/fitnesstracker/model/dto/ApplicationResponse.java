@@ -10,7 +10,7 @@ public class ApplicationResponse {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -18,7 +18,7 @@ public class ApplicationResponse {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -26,7 +26,7 @@ public class ApplicationResponse {
     }
 
     public String getApikey() {
-        return apikey;
+        return this.apikey;
     }
 
     public void setApikey(String apikey) {
@@ -34,7 +34,7 @@ public class ApplicationResponse {
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(String category) {

@@ -10,6 +10,7 @@ import fitnesstracker.model.mapper.ApplicationMapper;
 import fitnesstracker.repository.ApplicationRepository;
 import fitnesstracker.service.ApplicationService;
 import fitnesstracker.service.DeveloperService;
+import fitnesstracker.service.TokenBucketService;
 import fitnesstracker.utility.ErrorMessages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +24,14 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     private final ApplicationRepository applicationRepository;
     private final DeveloperService developerService;
+    private final TokenBucketService tokenService;
 
-    public ApplicationServiceImpl(ApplicationRepository applicationRepository, DeveloperService developerService) {
+    public ApplicationServiceImpl(ApplicationRepository applicationRepository,
+                                  DeveloperService developerService,
+                                  TokenBucketService tokenService) {
         this.applicationRepository = applicationRepository;
         this.developerService = developerService;
+        this.tokenService = tokenService;
     }
 
     @Override
@@ -55,6 +60,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 
         Application application = Application.createFromRequest(request, developer); // a factory method in Application
         application = applicationRepository.save(application);
+        tokenService.registerApp(application.getId());
         log.info("Application '{}' successfully saved with API key '{}'",
                 application.getName(), application.getApikey());
 

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @JsonPropertyOrder({
@@ -18,7 +18,7 @@ public class Developer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private long id;
+    private Long id;
     @NotBlank
     @Email(regexp = ".+@.+\\..+", message = "Email must be valid and contain a domain")
     @Column(unique = true)
@@ -27,7 +27,7 @@ public class Developer {
     private String password;
     private String authority;
     @OneToMany(mappedBy = "developer")
-    private Collection<Application> applications;
+    private List<Application> applications;
 
     public Developer() {
         this.authority = "ROLE_ADMIN";
@@ -41,16 +41,12 @@ public class Developer {
         applications = new ArrayList<>();
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Long getId() {
+        return this.id;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -66,18 +62,18 @@ public class Developer {
     }
 
     public String getAuthority() {
-        return authority;
+        return this.authority;
     }
 
     public void setAuthority(String authority) {
         this.authority = authority;
     }
 
-    public void setApplications(Collection<Application> applicationCollection) {
+    public void setApplications(List<Application> applicationCollection) {
         applications.addAll(applicationCollection);
     }
 
-    public Collection<Application> getApplications() {
+    public List<Application> getApplications() {
         return this.applications;
     }
 }

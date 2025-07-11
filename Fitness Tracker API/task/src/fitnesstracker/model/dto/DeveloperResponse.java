@@ -4,22 +4,22 @@ import fitnesstracker.model.entity.Application;
 
 import java.util.List;
 
-public class DeveloperProfileDto {
+public class DeveloperResponse {
     private long id;
     private String email;
     List<Application> applications;
 
-    public DeveloperProfileDto() {
+    public DeveloperResponse() {
     }
 
-    public DeveloperProfileDto(long id, String email, List<Application> applicationList) {
+    public DeveloperResponse(long id, String email, List<Application> applicationList) {
         this.id = id;
         this.email = email;
         this.applications = applicationList;
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -27,7 +27,7 @@ public class DeveloperProfileDto {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -35,7 +35,7 @@ public class DeveloperProfileDto {
     }
 
     public List<Application> getApplications() {
-        return applications;
+        return this.applications;
     }
 
     public void setApplications(List<Application> applications) {

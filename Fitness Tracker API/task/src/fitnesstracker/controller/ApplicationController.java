@@ -2,7 +2,6 @@ package fitnesstracker.controller;
 
 import fitnesstracker.model.dto.ApplicationRequest;
 import fitnesstracker.model.dto.ApplicationResponse;
-import fitnesstracker.exception.UnauthenticatedAccessException;
 import fitnesstracker.service.ApplicationService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -14,33 +13,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * REST controller for managing user applications within the fitness tracker.
+ * REST controller for managing applications registered by developers.
+ *
+ * Handles application registration under authenticated developer accounts.
+ * Enforces validation and delegates business logic to the ApplicationService.
  */
 @RestController
 @RequestMapping("/api/applications")
-public class ApplicationsController {
+public class ApplicationController {
     private final ApplicationService applicationService;
 
-    public ApplicationsController(ApplicationService applicationService) {
+    public ApplicationController(ApplicationService applicationService) {
         this.applicationService = applicationService;
     }
 
     /**
-     * Registers a new application under the authenticated user's account.
+     * POST /api/applications/register
+     * Registers a new application under the authenticated developer.
      *
-     * @param details authenticated user details
-     * @param request the application data to register
-     * @return response containing application info or error status
+     * - Requires valid Spring Security authentication (UserDetails injected).
+     * - Validates application request payload.
+     * - Returns generated API key and registered app info upon success.
+     *
+     * @param details authenticated user details (injected by Spring Security)
+     * @param request the application registration data
+     * @return 201 Created with ApplicationResponse (API key, name, etc.)
      */
     @PostMapping("/register")
     public ResponseEntity<ApplicationResponse> register(@AuthenticationPrincipal UserDetails details,
                                                         @Valid @RequestBody ApplicationRequest request) {
-        if (details == null) {
-            throw new UnauthenticatedAccessException("User is not authenticated");
-        }
-
-        ApplicationResponse response = applicationService.register(details.getUsername(), request);
-
-        return ResponseEntity.status(201).body(response);
+        return ResponseEntity
+                .status(201)
+                .body(applicationService.register(details.getUsername(), request));
     }
 }

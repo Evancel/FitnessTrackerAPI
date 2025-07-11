@@ -1,13 +1,13 @@
 package fitnesstracker.repository;
 
+import fitnesstracker.model.entity.Application;
 import fitnesstracker.model.entity.FitnessActivity;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FitnessActivityRepository extends CrudRepository<FitnessActivity, Long>,
-        PagingAndSortingRepository<FitnessActivity, Long> {
-    Iterable<FitnessActivity> findAll(Sort sort);
+public interface FitnessActivityRepository extends JpaRepository<FitnessActivity, Long> {
+    Page<FitnessActivity> findByApplication(Application application, Pageable pageable);
 }

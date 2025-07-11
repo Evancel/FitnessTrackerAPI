@@ -24,7 +24,7 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private long id;
+    private Long id;
     @NotBlank
     @Column(unique = true)
     private String name;
@@ -42,12 +42,12 @@ public class Application {
     public Application() {
     }
 
-    public long getId() {
-        return id;
+    public Long getId() {
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -55,7 +55,7 @@ public class Application {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -63,7 +63,7 @@ public class Application {
     }
 
     public String getApikey() {
-        return apikey;
+        return this.apikey;
     }
 
     public void setApikey() {
@@ -74,7 +74,7 @@ public class Application {
     }
 
     public Developer getDeveloper() {
-        return developer;
+        return this.developer;
     }
 
     public void setDeveloper(Developer developer) {
@@ -82,7 +82,7 @@ public class Application {
     }
 
     public AppCategory getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(AppCategory category) {
