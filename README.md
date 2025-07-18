@@ -2,6 +2,8 @@
 
 A secure, token-regulated backend API for managing fitness activity data submitted by registered developer applications. Built with **Spring Boot**, this project follows **Clean Architecture** principles, focuses on maintainability, and includes strong validation, layered domain design, and token bucket rate limiting.
 
+> **Note:** This was a learning project completed during our educational program. Throughout the development, we explored various backend topics such as Clean Architecture, domain-driven design (DDD), API security, and rate limiting strategies.
+
 ---
 
 ## 🔧 Tech Stack
@@ -97,3 +99,23 @@ Includes unit tests and service-layer logic coverage using:
 - Global exception handling via @ControllerAdvice
 
 ---
+
+## 🗂️ Project Structure
+
+```
+FitnessTrackerAPI/
+│
+├── Fitness Tracker API/task/         # Main source code base
+│   └── src/                          # Java source files organized by layers
+│       ├── domain/                   # Core domain models and business logic
+│       ├── application/              # Application services and use cases
+│       ├── infrastructure/           # Persistence, API key auth, and repositories
+│       └── interfaces/               # REST controllers (HTTP API layer)
+│
+├── Topics/                           # Educational materials, notes, or research
+├── gradle/                           # Gradle wrapper and settings
+├── build.gradle                      # Project dependencies and build config
+└── README.md                         # Project documentation
+```
+
+This structure reflects **Clean Architecture**, ensuring that core domain logic is independent of external frameworks. It promotes testability and maintainability, which were key learning objectives of this project.
